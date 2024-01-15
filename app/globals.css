@@ -2,26 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  background-color: rgb(39 39 42);
+  color: rgb(255, 255, 255);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.icon-bounce {
+  animation: bounce 2s infinite;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.email-icon {
+  width: 60px; 
+  height: 60px; 
+}
+
+@media only screen and (max-width: 768px) {
+  #logo {
+    font-size: 150%;
+  }
+  p {
+    font-size: 70%;
+  }
+
+  div.rounded.p-5.text-justify {
+    overflow-y: auto;
+  }
+
+
+
+  .email-icon {
+    width: 40px;
+    height: 40px;
+    margin: 100px;
+  }
+  #contact2 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
 }
