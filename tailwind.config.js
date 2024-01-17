@@ -27,11 +27,13 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'custom-gradient': "linear-gradient(71deg, #080509, #1a171c, #080509",
       },
       backgroundColor: {
         'custom-grey': '#36413E', 
         'davy-gray': '#5D5E60',
         'jet': '#2A2B2A',
+        'bla': '#080509'
       },
     },
   },

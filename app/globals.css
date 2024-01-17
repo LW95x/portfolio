@@ -5,6 +5,8 @@
 
 :root {
   background-color: rgb(39 39 42);
+  background-image: url('/milad-fakurian-3hIaqX3VuXE-unsplash.jpg');
+  background-size: cover;
   color: rgb(255, 255, 255);
 }
 
@@ -13,7 +15,7 @@
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
   60% {
     transform: translateY(-5px);
@@ -22,6 +24,7 @@
 
 .icon-bounce {
   animation: bounce 2s infinite;
+  animation-delay: 5s;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -34,9 +37,32 @@
 }
 
 .email-icon {
-  width: 60px; 
-  height: 60px; 
+  width: 80px; 
+  height: 80px; 
 }
+
+.container-title {
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.container-card {
+  position: relative;
+  background: linear-gradient(71deg, #080509, #161517, #080509);
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  height: 500px;
+  margin-left: 18rem;
+  margin-right: 18rem;
+  margin-top: 6rem;
+}
+
+
 
 @media only screen and (max-width: 768px) {
   #logo {
@@ -50,7 +76,18 @@
     overflow-y: auto;
   }
 
+  .container-card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 3rem;
+    height: 580px;
+    overflow-y: auto;
+  }
 
+  .container-title {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
 
   .email-icon {
     width: 40px;
@@ -61,5 +98,4 @@
     margin-left: 10px;
     margin-right: 10px;
   }
-  
 }
