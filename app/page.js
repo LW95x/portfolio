@@ -140,7 +140,7 @@ export default function Home() {
           >
             <RevealY>
              <p className={`${michroma.className} text-8xl opacity-75`}>LIAM WOODALL</p>
-             <p className={`${michroma.className} text-3xl mt-10 opacity-75`}>SOFTWARE ENGINEER</p>
+             <p className={`${michroma.className} text-3xl mt-10 opacity-75`}>FULL STACK DEVELOPER</p>
             </RevealY>
           </div>
           <div className="flex items-center justify-center">
