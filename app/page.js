@@ -224,9 +224,9 @@ export default function Home() {
         </div>
         <div
           id="page2"
-          className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
+          className="snap-start h-screen w-full pt-20 grid grid-cols-2 grid-rows-[auto_auto] gap-0"
         >
-          <div>
+          <div className="row-span-1 col-span-2">
           <NETProject/>
           </div>
           <div className="flex justify-center mt-4">
