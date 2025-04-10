@@ -229,11 +229,11 @@ export default function Home() {
           <div className="row-span-1 col-span-2">
           <NETProject/>
           </div>
-          <div className="flex justify-center mt-4">
+          <div className="col-span-2 flex justify-center">
             <Link href="#page3" className="flex items-center justify-start">
               <BsFillArrowDownSquareFill
                 size={40}
-                className="p-1 arrow"
+                className="p-1 arrow mb-1"
               />
             </Link>
           </div>
@@ -245,11 +245,11 @@ export default function Home() {
           <div>
           <TSProject />
           </div>
-          <div className="flex justify-center mt-0.5">
+          <div className="col-span-2 flex justify-center">
             <Link href="#page4" className="flex items-center justify-start">
               <BsFillArrowDownSquareFill
                 size={40}
-                className="p-1 arrow"
+                className="p-1 arrow mb-3"
               />
             </Link>
           </div>

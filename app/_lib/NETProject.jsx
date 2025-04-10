@@ -41,15 +41,23 @@ export default function ProjectTwo() {
 
       <RevealY>
         <div className="flex justify-center items-center">
-          <div className="border-2 border-zinc-700 rounded mb-5">
             <Image
-              src="/netswagger.png"
+              src="/erd.png"
               alt="Treasure Hunt API"
-              width={720}
+              width={600}
               height={400}
-              className="object-contain opacity-80"
+              className="object-contain opacity-80 rounded-lg"
             />
-          </div>
+        </div>
+
+        <div className="flex justify-center items-center mt-1">
+            <Image
+              src="/solexplorer.png"
+              alt="Treasure Hunt API"
+              width={600}
+              height={400}
+              className="object-contain opacity-90 rounded-lg"
+            />
         </div>
       </RevealY>
     </div>
