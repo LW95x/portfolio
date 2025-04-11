@@ -1,94 +1,69 @@
 import Image from "next/image";
 import RevealY from "./RevealY";
 import { useEffect, useRef, useState } from "react";
-import { FaDeaf, FaGithub, FaLaptopCode } from "react-icons/fa";
+import { FaArrowRight, FaDeaf, FaGithub, FaLaptopCode } from "react-icons/fa";
 import { GiStack, GiTiedScroll } from "react-icons/gi";
 import Link from "next/link";
 import { CgWebsite } from "react-icons/cg";
+import { IBM_Plex_Sans } from "next/font/google";
+
+const ibm = IBM_Plex_Sans({
+  subsets: [ "latin" ],
+  weight: "700",
+})
 
 export default function ProjectTwo() {
-  const [optionOne, setOptionOne] = useState(false);
-  const [optionTwo, setOptionTwo] = useState(true);
-  const [optionThree, setOptionThree] = useState(false);
 
   return (
     <div className="grid grid-cols-2 w-full h-full p-4 gap-x-0">
-      
       <RevealY>
-        <div className="container-card-three border border-zinc-900 opacity-75">
-          <div className="flex flex-row items-center mb-2">
-            <GiStack size={20} className="mr-2" />
-            <p>
-              C#, ASP.NET Core Web API, Entity Framework Core, LINQ, SQL Server,
-              Docker, GitHub Actions, Azure, xUnit, Moq
-            </p>
-          </div>
+        <div className="container-card-two border border-zinc-900 opacity-90">
           <div className="flex flex-row items-center mt-1 mb-2">
             <FaGithub size={20} className="mr-2" />
-            <Link
-              href="https://github.com/LW95x/marketplace_backend"
-              target="_blank"
-            >
-              <p className="hover:underline">View the code</p>
-            </Link>
+            <Link href="https://github.com/LW95x/club-connect-be/" target="_blank">
+            <p className="text-center items-center justify-center hover:underline">View the backend code</p></Link>
           </div>
-          <div className="flex flex-row items-center mt-1 mb-2">
+          <div className="flex flex-row items-center mt-1 mb-1">
             <CgWebsite size={20} className="mr-2" />
-            <Link
-              href="https://u2umarketplace-api.azurewebsites.net/"
-              target="_blank"
-            >
-              <p className="hover:underline">Live version</p>
-            </Link>
+            <Link href="https://the-football-pyramid-backend.onrender.com/api/" target="_blank">
+            <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
           </div>
-          <h2 className="container-title">ClubConnect Backend</h2>
-          <p className="px-20">
-            I designed this comprehensive <b>ASP.NET Core Web API</b> to
-            simulate a user-to-user marketplace like eBay, where users can
-            seamlessly buy and sell products. This project was built to handle
-            complex entity interactions, including many-to-many relationships
-            and cascading dependencies, providing me with a deeper understanding
-            of interconnected database structures.
+          <hr className="w-1/3"/>
+            <div className="flex flex-row items-center mt-2 mb-1">
+            <FaGithub size={20} className="mr-2 mt-1"/>
+            <Link href="https://github.com/LW95x/club-connect-fe/" target="_blank">
+            <p className="text-center items-center justify-center hover:underline">View the frontend code</p></Link>
+            </div>
+            <div className="flex flex-row items-center mt-1 mb-2">
+            <CgWebsite size={20} className="mr-2"/>
+            <Link href="https://clubconnects.netlify.app/" target="_blank">
+            <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
+            </div>
+            <h2 className={`${ibm.className} container-title`}>ClubConnect</h2>
+          <p className="px-20 text-justify">
+          A full-stack <span className={`${ibm.className}`}>TypeScript</span> events management platform designed to mediate the buying and selling of tickets to sporting events. 
+          Built using <span className={`${ibm.className}`}>Node.js</span>, <span className={`${ibm.className}`}>Express</span>, and a <span className={`${ibm.className}`}>PostgreSQL</span> database for the backend, combined with a responsive <span className={`${ibm.className}`}>React</span> frontend developed with <span className={`${ibm.className}`}>Next.js</span>, <span className={`${ibm.className}`}>Tailwind</span> and <span className={`${ibm.className}`}>Framer Motion</span>.
           </p>
+          <br />
+          <ul className="px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
+          <li className="flex">
+          <FaArrowRight className="text-green-500" /><span className={`${ibm.className}`}>Test-Driven Development (TDD)</span> led approach, using <span className={`${ibm.className}`}>Jest</span> and <span className={`${ibm.className}`}>Supertest</span>, with over 90 tests in total
+            </li>
+          <li>
+            Styled with <span className={`${ibm.className}`}>Tailwind</span> to match a curated <span className={`${ibm.className}`}>Figma</span> design, enhanced with <span className={`${ibm.className}`}>Framer Motion</span>
+            </li>
+            <li>
+            Secured password encryption with <span className={`${ibm.className}`}>BCrypt</span>, and applied strict validation of schemas using <span className={`${ibm.className}`}>Joi</span>
+            </li>
+            <li>
+            <span className={`${ibm.className}`}>Stripe Payment API</span> integrated to securely facilitate the event ordering process
+            </li>
+            <li>
+            <span className={`${ibm.className}`}>Google Calendar API</span> implemented to enable users to seamlessly add events to their calendars
+            </li>
+          </ul>
         </div>
-
-        <div className="container-card-three border border-zinc-900 opacity-75 mt-4">
-          <div className="flex flex-row items-center">
-            <GiStack size={20} className="mr-2" />
-            <p>
-              C#, ASP.NET Core Web API, Entity Framework Core, LINQ, SQL Server,
-              Docker, GitHub Actions, Azure, xUnit, Moq
-            </p>
-          </div>
-          <div className="flex flex-row items-center mt-1 mb-2">
-            <FaGithub size={20} className="mr-2" />
-            <Link
-              href="https://github.com/LW95x/marketplace_backend"
-              target="_blank"
-            >
-              <p className="hover:underline">View the code</p>
-            </Link>
-          </div>
-          <div className="flex flex-row items-center mt-1 mb-2">
-            <CgWebsite size={20} className="mr-2" />
-            <Link
-              href="https://u2umarketplace-api.azurewebsites.net/"
-              target="_blank"
-            >
-              <p className="hover:underline">Live version</p>
-            </Link>
-          </div>
-          <h2 className="container-title">ClubConnect Frontend</h2>
-          <p className="px-20">
-            I designed this comprehensive <b>ASP.NET Core Web API</b> to
-            simulate a user-to-user marketplace like eBay, where users can
-            seamlessly buy and sell products. This project was built to handle
-            complex entity interactions, including many-to-many relationships
-            and cascading dependencies, providing me with a deeper understanding
-            of interconnected database structures.
-          </p>
-        </div>
-      </RevealY>
+        </RevealY>
 
       <RevealY>
         <div className="flex justify-center items-center">
@@ -101,7 +76,7 @@ export default function ProjectTwo() {
           />
         </div>
 
-        <div className="flex justify-center items-center mt-1">
+        <div className="flex justify-center items-center mt-2">
           <Image
             src="/ccfrontend.png"
             alt="Treasure Hunt API"

@@ -5,110 +5,83 @@ import { FaDeaf, FaLaptopCode, FaGithub } from "react-icons/fa";
 import { GiTiedScroll, GiStack } from "react-icons/gi";
 import { CgWebsite } from "react-icons/cg";
 import Link from "next/link";
+import { IBM_Plex_Sans } from "next/font/google";
 
+const ibm = IBM_Plex_Sans({
+  subsets: [ "latin" ],
+  weight: "700",
+})
 
 export default function ProjectOne() {
-  const [optionOne, setOptionOne] = useState(false);
-  const [optionTwo, setOptionTwo] = useState(true);
-  const [optionThree, setOptionThree] = useState(false);
 
   return (
-    <>
+    <div className="grid grid-cols-2 w-full h-full p-4 gap-x-0">
       <RevealY>
-        <div className="flex justify-center items-center relative pt-24">
-          <div className="border-4 border-zinc-700 rounded flex flex-row absolute mb-5">
-            <button
-              onClick={() => {
-                setOptionOne(false);
-                setOptionThree(false);
-                setOptionTwo(true);
-              }}
-            >
-              <div className="relative">
-                <Image
-                  src="/backend-proj1b.png"
-                  alt="news-backend"
-                  width={235}
-                  height={200}
-                  className="object-cover opacity-50 rounded"
-                  
-                />
-                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-                  <p className="text-white text-sm bg-zinc-900 bg-opacity-40 p-2 rounded hover:bg-opacity-90">
-                    NC News Backend
-                  </p>
-                </div>
-              </div>
-            </button>
-            <button
-              onClick={() => {
-                setOptionOne(false);
-                setOptionTwo(false);
-                setOptionThree(true);
-              }}
-            >
-              <div className="relative">
-                <Image
-                  src="/frontend-proj1.png"
-                  width={230}
-                  height={0}
-                  alt="frontend-news"
-                  className="object-contain opacity-50"
-                  
-                />
-                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-                  <p className="text-white text-sm bg-zinc-900 bg-opacity-40 p-2 rounded hover:bg-opacity-90">
-                    NC News Frontend
-                  </p>
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
-      </RevealY>
-      <RevealY>
-      <div className="container-card row-span-2 border-2 border-zinc-900 opacity-75">
-          {optionTwo ? <RevealY>
-            <div className="flex flex-row items-center">
-              <GiStack size={20} className="mr-2"/> 
-            <p className="text-center items-center justify-center">Node.js, Express, PSQL, Jest, Supertest</p>
-            </div>
-            <div className="flex flex-row items-center mt-1">
-            <FaGithub size={20} className="mr-2 mt-1"/>
+        <div className="container-card-two border border-zinc-900 opacity-90">
+          <div className="flex flex-row items-center mt-1 mb-1">
+            <FaGithub size={20} className="mr-2" />
             <Link href="https://github.com/LW95x/be-nc-news" target="_blank">
-            <p className="text-center items-center justify-center hover:underline">View the code</p></Link>
-            </div>
-            <div className="flex flex-row items-center mt-1">
-            <CgWebsite size={20} className="mr-2"/>
+            <p className="text-center items-center justify-center hover:underline">View the backend code</p></Link>
+          </div>
+          <div className="flex flex-row items-center mt-1 mb-2">
+            <CgWebsite size={20} className="mr-2" />
             <Link href="https://be-nc-news-sfsv.onrender.com/api" target="_blank">
             <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
-            </div>
-            <h2 className="container-title">NC News Backend</h2>
-              <p className="text-justify px-20">
-              For my first full stack project at Northcoders, NC News, I utilised a combination of Node.js, Express, and PSQL to develop a comprehensive API. This API seamlessly supplies data to my frontend architecture, which was designed to mimic a news aggregator such as Reddit. <br/> <br/>The backend was implemented using the MVC design pattern, ensuring for a well-structured and maintainable codebase. Robust error handling capabilities were incorporated into all endpoints and thoroughly tested using Jest and Supertest, thus ensuring for system stability and reliability. 
-              </p></RevealY> : null}
-          {optionThree ? <RevealY>
-            <div className="flex flex-row items-center">
-              <GiStack size={20} className="mr-2"/> 
-            <p className="text-center items-center justify-center">React, Vite, Bootstrap, Axios</p>
-            </div>
-            <div className="flex flex-row items-center mt-1">
+          </div>
+          <hr className="w-1/3"/>
+            <div className="flex flex-row items-center mt-2 mb-1">
             <FaGithub size={20} className="mr-2 mt-1"/>
             <Link href="https://github.com/LW95x/nc-news" target="_blank">
-            <p className="text-center items-center justify-center hover:underline">View the code</p></Link>
+            <p className="text-center items-center justify-center hover:underline">View the frontend code</p></Link>
             </div>
             <div className="flex flex-row items-center mt-1">
             <CgWebsite size={20} className="mr-2"/>
             <Link href="https://nc-news-project-fe.netlify.app/" target="_blank">
             <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
             </div>
-            <h2 className="container-title">NC News Frontend</h2>
-              <p className="text-justify px-20">
-              I designed the frontend for NC News using React and the Vite framework, significantly improving speed of development. Axios was used to make requests to the backend API, enabling users to view articles, sort articles by various metrics, and engage by being able to comment, delete comments, and vote on articles. <br/><br/>The website was styled using the Bootstrap framework, ensuring it was visually appealing and highly responsive towards different devices and screen sizes. Comprehensive error handling capabilities were implemented, safeguarding against preventable errors, further enhancing the overall user experience.
-              </p>
-          </RevealY> : null}
+          <h2 className={`${ibm.className} container-title`}>NC News</h2>
+          <p className="px-20 text-justify">
+          A full stack news aggregation platform built with <span className={`${ibm.className}`}>JavaScript</span>, <span className={`${ibm.className}`}>Node.js</span>, <span className={`${ibm.className}`}>Express</span>, <span className={`${ibm.className}`}>React</span>, <span className={`${ibm.className}`}>Vite</span>, <span className={`${ibm.className}`}>Axios</span> and a <span className={`${ibm.className}`}>PostgreSQL</span> database. Designed to mimic a similar service such as Reddit, where users can post content, leave comments on existing posts, and upvote or downvote other users posts.
+          </p>
+          <br />
+          <ul className="px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
+            <li>
+            <span className={`${ibm.className}`}>Test Driven Development (TDD)</span> approach using <span className={`${ibm.className}`}>Jest</span> and <span className={`${ibm.className}`}>Supertest</span> to guarantee a robust API
+            </li>
+            <li>
+            Styled with <span className={`${ibm.className}`}>Bootstrap</span>, producing a responsive design compatible for all device types
+            </li>
+            <li>
+            Followed <span className={`${ibm.className}`}>RESTful API</span> design principles with resource-based routing and stateless interactions
+            </li>
+            <li>
+            Implemented API using the <span className={`${ibm.className}`}>MVC</span> design pattern, producing a clean and maintainable codebase
+            </li>
+          </ul>
+        </div>
+        </RevealY>
+
+      <RevealY>
+        <div className="flex justify-center items-center">
+          <Image
+            src="/nc-news-be.png"
+            alt="NC News API"
+            width={400}
+            height={400}
+            className="object-contain opacity-90 rounded-lg"
+          />
+        </div>
+
+        <div className="flex justify-center items-center mt-2">
+          <Image
+            src="/nc-news-fe.png"
+            alt="NC News Frontend"
+            width={450}
+            height={400}
+            className="object-contain opacity-90 rounded-lg"
+          />
         </div>
       </RevealY>
-    </>
+    </div>
   );
 }

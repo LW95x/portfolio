@@ -43,7 +43,7 @@
 
 .container-title {
   text-align: center;
-  font-size: 20px;
+  font-size: 32px;
   color: #fff;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -86,8 +86,12 @@
   margin-left: 10rem;
 }
 
-p {
-  font-size: 14px;
+p, ul {
+  font-size: 15px;
+}
+
+.list-square {
+  list-style-type: 
 }
 
 

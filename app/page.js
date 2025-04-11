@@ -1,7 +1,7 @@
 "use client";
 import { RiMenuFill } from "react-icons/ri";
 import { BsFillArrowDownSquareFill } from "react-icons/bs";
-import { Rampart_One, Kanit, Audiowide, Michroma } from "next/font/google";
+import { Rampart_One, Kanit, Michroma} from "next/font/google";
 import Image from "next/image";
 import { motion, useScroll } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -28,20 +28,10 @@ const kanit = Kanit({
   weight: "300",
 });
 
-const audioWide = Audiowide({
-  subsets: ["latin"],
-  weight: "400"
-})
-
 const michroma = Michroma({
   subsets: [ "latin" ],
   weight: "400",
 })
-
-const imageStyle = {
-  borderRadius: "10%",
-  overflow: "hidden",
-};
 
 const returnToTop = (e) => {
   e.preventDefault();
@@ -114,7 +104,7 @@ export default function Home() {
                   href="#page4"
                   className="flex text-center justify-center items-center hover:bg-zinc-800 rounded transition-all duration-300"
                 >
-                  <RevealMenu>Northcoders Projects</RevealMenu>
+                  <RevealMenu>JavaScript Projects</RevealMenu>
                 </Link>
                 <Link
                   href="#page6"
