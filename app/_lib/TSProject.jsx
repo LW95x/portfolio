@@ -23,7 +23,7 @@ export default function ProjectTwo() {
             <Link href="https://github.com/LW95x/club-connect-be/" target="_blank">
             <p className="text-center items-center justify-center hover:underline">View the backend code</p></Link>
           </div>
-          <div className="flex flex-row items-center mt-1 mb-1">
+          <div className="flex flex-row items-center mt-1 mb-2">
             <CgWebsite size={20} className="mr-2" />
             <Link href="https://the-football-pyramid-backend.onrender.com/api/" target="_blank">
             <p className="text-center items-center justify-center hover:underline">Live version </p></Link>

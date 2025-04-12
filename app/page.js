@@ -289,7 +289,7 @@ export default function Home() {
             className='flex items-end text-center text-3xl justify-center'
           >
             <RevealY>
-              <p className={`${michroma.className} text-xl`}>
+              <p className={`${michroma.className} text-2xl`}>
                 Thank you for taking the time to check out my portfolio. <br/><br/>If you&apos;d
                 like to keep in touch:
               </p>
