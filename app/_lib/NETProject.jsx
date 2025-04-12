@@ -79,7 +79,7 @@ export default function ProjectTwo() {
           />
         </div>
 
-        <div className="flex justify-center items-center mt-1">
+        <div className="flex justify-center items-center mt-3">
           <Image
             src="/solexplorer.png"
             alt="Treasure Hunt API"

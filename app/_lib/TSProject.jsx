@@ -1,7 +1,7 @@
 import Image from "next/image";
 import RevealY from "./RevealY";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowRight, FaDeaf, FaGithub, FaLaptopCode } from "react-icons/fa";
+import { FaDeaf, FaGithub, FaLaptopCode } from "react-icons/fa";
 import { GiStack, GiTiedScroll } from "react-icons/gi";
 import Link from "next/link";
 import { CgWebsite } from "react-icons/cg";
@@ -46,8 +46,8 @@ export default function ProjectTwo() {
           </p>
           <br />
           <ul className="px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
-          <li className="flex">
-          <FaArrowRight className="text-green-500" /><span className={`${ibm.className}`}>Test-Driven Development (TDD)</span> led approach, using <span className={`${ibm.className}`}>Jest</span> and <span className={`${ibm.className}`}>Supertest</span>, with over 90 tests in total
+          <li>
+            <span className={`${ibm.className}`}>Test-Driven Development (TDD)</span> led approach, using <span className={`${ibm.className}`}>Jest</span> and <span className={`${ibm.className}`}>Supertest</span>, with over 90 tests in total
             </li>
           <li>
             Styled with <span className={`${ibm.className}`}>Tailwind</span> to match a curated <span className={`${ibm.className}`}>Figma</span> design, enhanced with <span className={`${ibm.className}`}>Framer Motion</span>
@@ -76,7 +76,7 @@ export default function ProjectTwo() {
           />
         </div>
 
-        <div className="flex justify-center items-center mt-2">
+        <div className="flex justify-center items-center mt-3">
           <Image
             src="/ccfrontend.png"
             alt="Treasure Hunt API"

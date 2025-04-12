@@ -46,7 +46,7 @@ export default function ProjectOne() {
           <br />
           <ul className="px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
             <li>
-            <span className={`${ibm.className}`}>Test Driven Development (TDD)</span> approach using <span className={`${ibm.className}`}>Jest</span> and <span className={`${ibm.className}`}>Supertest</span> to guarantee a robust API
+            <span className={`${ibm.className}`}>Test Driven Development (TDD)</span> led approach, using <span className={`${ibm.className}`}>Jest</span> and <span className={`${ibm.className}`}>Supertest</span> to guarantee a robust API
             </li>
             <li>
             Styled with <span className={`${ibm.className}`}>Bootstrap</span>, producing a responsive design compatible for all device types
@@ -72,7 +72,7 @@ export default function ProjectOne() {
           />
         </div>
 
-        <div className="flex justify-center items-center mt-2">
+        <div className="flex justify-center items-center mt-3">
           <Image
             src="/nc-news-fe.png"
             alt="NC News Frontend"

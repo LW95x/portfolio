@@ -1,7 +1,7 @@
 "use client";
 import { RiMenuFill } from "react-icons/ri";
 import { BsFillArrowDownSquareFill } from "react-icons/bs";
-import { Rampart_One, Kanit, Michroma} from "next/font/google";
+import { Rampart_One, Kanit, Michroma, IBM_Plex_Sans} from "next/font/google";
 import Image from "next/image";
 import { motion, useScroll } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -31,6 +31,11 @@ const kanit = Kanit({
 const michroma = Michroma({
   subsets: [ "latin" ],
   weight: "400",
+})
+
+const ibm = IBM_Plex_Sans({
+  subsets: [ "latin" ],
+  weight: "700",
 })
 
 const returnToTop = (e) => {
@@ -129,8 +134,8 @@ export default function Home() {
             className={`${kanit.className}  flex items-end text-center text-5xl justify-center`}
           >
             <RevealY>
-             <p className={`${michroma.className} text-8xl opacity-75`}>LIAM WOODALL</p>
-             <p className={`${michroma.className} text-3xl mt-10 opacity-75`}>FULL STACK DEVELOPER</p>
+             <p className={`${michroma.className} text-8xl opacity-90`}>LIAM WOODALL</p>
+             <p className={`${michroma.className} text-3xl mt-10 opacity-90`}>FULL STACK DEVELOPER</p>
             </RevealY>
           </div>
           <div className="flex items-center justify-center">
@@ -284,8 +289,8 @@ export default function Home() {
             className='flex items-end text-center text-3xl justify-center'
           >
             <RevealY>
-              <p>
-                Thank you for taking the time to check out my portfolio. If you&apos;d
+              <p className={`${michroma.className} text-xl`}>
+                Thank you for taking the time to check out my portfolio. <br/><br/>If you&apos;d
                 like to keep in touch:
               </p>
             </RevealY>
@@ -301,13 +306,13 @@ export default function Home() {
                   href="https://www.linkedin.com/in/liam-woodall/"
                   target="_blank"
                 >
-                  <div className="relative group p-2 rounded-lg transition-all duration-300 hover:bg-gray-800">
+                  <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
                   <Image
                     src="/LinkedIn-Logo-2019.png"
                     width={200}
                     height={200}
                     alt="linkedin"
-                    className="object-contain"
+                    className="object-contain transition-transform duration-200 hover:scale-110"
                   />
                   </div>
                 </Link>
@@ -319,12 +324,12 @@ export default function Home() {
             >
               <RevealY>
                 <Link href="mailto:liam.woodall@live.co.uk">
-                <div className="relative group p-4 rounded-lg transition-all duration-300 hover:bg-gray-800">
+                <div className="relative group p-4 rounded-lg transition-all duration-200 hover:bg-gray-800">
                   <TfiEmail
                     id="email"
                     size={150}
                     alt="email"
-                    className="email-icon"
+                    className="email-icon transition-transform duration-200 hover:scale-110"
                   />
                   </div>
                 </Link>
@@ -333,12 +338,12 @@ export default function Home() {
             <div id="contact3" className="flex items-center justify-center">
               <RevealXRight>
                 <Link href="https://github.com/LW95x/" target="_blank">
-                <div className="relative group p-2 rounded-lg transition-all duration-300 hover:bg-gray-800">
+                <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
                   <Image
                     src="/GitHub_Logo.png"
                     width={200}
                     height={200}
-                    className="object-contain"
+                    className="object-contain transition-transform duration-200 hover:scale-110"
                     alt="github"
                   />
                   </div>
