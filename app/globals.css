@@ -99,8 +99,14 @@ p, ul {
   #logo {
     font-size: 150%;
   }
-  p {
-    font-size: 90%;
+  p, li {
+    font-size: 60%;
+  }
+
+  ul {
+    padding-left: 0;
+    padding-right: 0;
+    
   }
 
   .text-justify.px-20 {
@@ -108,12 +114,49 @@ p, ul {
     padding-right: 1rem;
   }
 
-  .container-card {
+  .px-20 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  img {
+    max-width: 90% !important;
+    height: auto !important;
+    margin-left: 3rem;
+  }
+
+  .text-8xl {
+    font-size: 60%;
+  }
+
+  .text-3xl {
+    font-size: 30%;
+  }
+
+  .text-2xl {
+    font-size: 250%;
+  }
+
+  .fixed.top-0 a {
+    font-size: 60%;
+  }
+
+  #contact1 img,
+  #contact3 img,
+  #email {
+    width: 6rem !important;
+    height: auto !important;
+  }
+
+
+  .container-card, .container-card-two, .container-card-three {
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 5.5rem;
-    height: 50vh;
+    height: 80vh;
     overflow-y: auto;
+    width: 50vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .container-title {

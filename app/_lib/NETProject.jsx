@@ -48,7 +48,7 @@ export default function ProjectTwo() {
             products in a secure and efficient way.
           </p>
           <br />
-          <ul className="px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
+          <ul className="px-4 md:px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
             <li>
               Adhered to <span className={`${ibm.className}`}>SOLID</span> principles, utilising the <span className={`${ibm.className}`}>Controller-Service-Repository</span> pattern, dependency injection and
               interfaces to ensure separation of concerns is maintained
