@@ -1,7 +1,7 @@
 "use client";
 import { RiMenuFill } from "react-icons/ri";
 import { BsFillArrowDownSquareFill } from "react-icons/bs";
-import { Rampart_One, Kanit, Michroma, IBM_Plex_Sans} from "next/font/google";
+import { Rampart_One, Kanit, Michroma, IBM_Plex_Sans } from "next/font/google";
 import Image from "next/image";
 import { motion, useScroll } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -29,14 +29,14 @@ const kanit = Kanit({
 });
 
 const michroma = Michroma({
-  subsets: [ "latin" ],
+  subsets: ["latin"],
   weight: "400",
-})
+});
 
 const ibm = IBM_Plex_Sans({
-  subsets: [ "latin" ],
+  subsets: ["latin"],
   weight: "700",
-})
+});
 
 const returnToTop = (e) => {
   e.preventDefault();
@@ -59,15 +59,13 @@ export default function Home() {
     }
   }, []);
 
-  useEffect( () => {
+  useEffect(() => {
     ReactGA.initialize("G-7J731CXS60");
   }, []);
 
-
-
   return (
     <>
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <div
         id="scrollContainer"
         className="overflow-y-scroll h-screen snap-y snap-mandatory scroll-smooth hide-scrollbar"
@@ -134,87 +132,89 @@ export default function Home() {
             className={`${kanit.className}  flex items-end text-center text-5xl justify-center`}
           >
             <RevealY>
-             <p className={`${michroma.className} text-8xl opacity-90`}>LIAM WOODALL</p>
-             <p className={`${michroma.className} text-3xl mt-10 opacity-90`}>FULL STACK DEVELOPER</p>
+              <p className={`${michroma.className} text-8xl opacity-90`}>
+                LIAM WOODALL
+              </p>
+              <p className={`${michroma.className} text-3xl mt-10 opacity-90`}>
+                FULL STACK DEVELOPER
+              </p>
             </RevealY>
           </div>
           <div className="flex items-center justify-center">
             <RevealY>
               <div className="flex flex-row gap-4">
-              <Image
-                              src="/Logo_C_sharp.png"
-                              alt="C# Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-            <Image
-                              src="/NET_Core_Logo.png"
-                              alt=".NET Core Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            <Image
-                              src="/Typescript_logo_2020.png"
-                              alt="TypeScript Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            <Image
-                              src="/JavaScript-logo.png"
-                              alt="JavaScript Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            </div>
-                            <div className="flex flex-row gap-4 mt-5">
-            <Image
-                              src="/Microsoft_Azure.png"
-                              alt=".NET Core Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            <Image
-                              src="nextjs.png"
-                              alt="Next.js Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            <Image
-                              src="node1.png"
-                              alt="Node.js Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            <Image
-                              src="/react_icon.png"
-                              alt="React Logo"
-                              width={50}
-                              height={50}
-                              className="opacity-100 transition-transform duration-200 hover:scale-110"
-                            />
-                            </div>
+                <Image
+                  src="/Logo_C_sharp.png"
+                  alt="C# Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+                <Image
+                  src="/NET_Core_Logo.png"
+                  alt=".NET Core Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+                <Image
+                  src="/Typescript_logo_2020.png"
+                  alt="TypeScript Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+                <Image
+                  src="/JavaScript-logo.png"
+                  alt="JavaScript Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+              </div>
+              <div className="flex flex-row gap-4 mt-5">
+                <Image
+                  src="/Microsoft_Azure.png"
+                  alt=".NET Core Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+                <Image
+                  src="nextjs.png"
+                  alt="Next.js Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+                <Image
+                  src="node1.png"
+                  alt="Node.js Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+                <Image
+                  src="/react_icon.png"
+                  alt="React Logo"
+                  width={50}
+                  height={50}
+                  className="opacity-100 transition-transform duration-200 hover:scale-110"
+                />
+              </div>
             </RevealY>
           </div>
           <div className="grid grid-cols-1">
-            <div>
+            <div></div>
+            <div></div>
+            <div className="flex justify-center items-center">
+              <Link href="#page2" className="flex items-center justify-center">
+                <BsFillArrowDownSquareFill
+                  size={50}
+                  className="p-1 flex items-center justify-center icon-bounce mb-1"
+                />
+              </Link>
             </div>
-            <div>
-            </div>
-          <div className="flex justify-center items-center">
-            <Link href="#page2" className="flex items-center justify-center">
-              <BsFillArrowDownSquareFill
-                size={50}
-                className="p-1 flex items-center justify-center icon-bounce mb-1"
-              />
-            </Link>
-          </div>
           </div>
         </div>
         <div
@@ -222,14 +222,11 @@ export default function Home() {
           className="snap-start h-screen w-full pt-20 grid grid-cols-2 grid-rows-[auto_auto] gap-0"
         >
           <div className="row-span-1 col-span-2">
-          <NETProject/>
+            <NETProject />
           </div>
           <div className="col-span-2 flex justify-center">
             <Link href="#page3" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill
-                size={40}
-                className="p-1 arrow mb-1"
-              />
+              <BsFillArrowDownSquareFill size={40} className="p-1 arrow mb-1" />
             </Link>
           </div>
         </div>
@@ -238,14 +235,11 @@ export default function Home() {
           className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
         >
           <div>
-          <TSProject />
+            <TSProject />
           </div>
           <div className="col-span-2 flex justify-center">
             <Link href="#page4" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill
-                size={40}
-                className="p-1 arrow mb-3"
-              />
+              <BsFillArrowDownSquareFill size={40} className="p-1 arrow mb-3" />
             </Link>
           </div>
         </div>
@@ -254,14 +248,11 @@ export default function Home() {
           className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
         >
           <div>
-          <ProjectOne />
+            <ProjectOne />
           </div>
           <div className="flex justify-center mt-0.5">
             <Link href="#page5" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill
-                size={40}
-                className="p-1 arrow"
-              />
+              <BsFillArrowDownSquareFill size={40} className="p-1 arrow" />
             </Link>
           </div>
         </div>
@@ -270,14 +261,11 @@ export default function Home() {
           className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
         >
           <div>
-          <ProjectTwo />
+            <ProjectTwo />
           </div>
           <div className="flex justify-center mt-0.5">
             <Link href="#page6" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill
-                size={40}
-                className="p-1 arrow"
-              />
+              <BsFillArrowDownSquareFill size={40} className="p-1 arrow" />
             </Link>
           </div>
         </div>
@@ -285,17 +273,16 @@ export default function Home() {
           id="page6"
           className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-3 gap-1 "
         >
-          <div
-            className='flex items-end text-center text-3xl justify-center'
-          >
+          <div className="flex items-end text-center text-3xl justify-center">
             <RevealY>
               <p className={`${michroma.className} text-2xl`}>
-                Thank you for taking the time to check out my portfolio. <br/><br/>If you&apos;d
-                like to keep in touch:
+                Thank you for taking the time to check out my portfolio. <br />
+                <br />
+                If you&apos;d like to keep in touch:
               </p>
             </RevealY>
           </div>
-          <div className="grid grid-cols-9">
+          <div className="contact-grid grid grid-cols-9">
             <div></div>
             <div></div>
             <div></div>
@@ -307,30 +294,27 @@ export default function Home() {
                   target="_blank"
                 >
                   <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
-                  <Image
-                    src="/LinkedIn-Logo-2019.png"
-                    width={200}
-                    height={200}
-                    alt="linkedin"
-                    className="object-contain transition-transform duration-200 hover:scale-110"
-                  />
+                    <Image
+                      src="/LinkedIn-Logo-2019.png"
+                      width={200}
+                      height={200}
+                      alt="linkedin"
+                      className="object-contain transition-transform duration-200 hover:scale-110 linkedin-image"
+                    />
                   </div>
                 </Link>
               </RevealXLeft>
             </div>
-            <div
-              id="contact2"
-              className="flex items-center justify-center"
-            >
+            <div id="contact2" className="flex items-center justify-center">
               <RevealY>
                 <Link href="mailto:liam.woodall@live.co.uk">
-                <div className="relative group p-4 rounded-lg transition-all duration-200 hover:bg-gray-800">
-                  <TfiEmail
-                    id="email"
-                    size={150}
-                    alt="email"
-                    className="email-icon transition-transform duration-200 hover:scale-110"
-                  />
+                  <div className="relative group p-4 rounded-lg transition-all duration-200 hover:bg-gray-800">
+                    <TfiEmail
+                      id="email"
+                      size={150}
+                      alt="email"
+                      className="email-icon transition-transform duration-200 hover:scale-110"
+                    />
                   </div>
                 </Link>
               </RevealY>
@@ -338,22 +322,21 @@ export default function Home() {
             <div id="contact3" className="flex items-center justify-center">
               <RevealXRight>
                 <Link href="https://github.com/LW95x/" target="_blank">
-                <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
-                  <Image
-                    src="/GitHub_Logo.png"
-                    width={200}
-                    height={200}
-                    className="object-contain transition-transform duration-200 hover:scale-110"
-                    alt="github"
-                  />
+                  <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
+                    <Image
+                      src="/GitHub_Logo.png"
+                      width={200}
+                      height={200}
+                      className="object-contain transition-transform duration-200 hover:scale-110 github-image"
+                      alt="github"
+                    />
                   </div>
                 </Link>
               </RevealXRight>
             </div>
           </div>
-          
-            </div>
         </div>
+      </div>
     </>
   );
 }

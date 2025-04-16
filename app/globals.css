@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   background-color: rgb(39 39 42);
-  background-image: url('/milad-fakurian-3hIaqX3VuXE-unsplash.jpg');
+  background-image: url("/milad-fakurian-3hIaqX3VuXE-unsplash.jpg");
   background-size: cover;
   color: rgb(255, 255, 255);
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -32,13 +35,13 @@
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .email-icon {
-  width: 80px; 
-  height: 80px; 
+  width: 80px;
+  height: 80px;
 }
 
 .container-title {
@@ -86,27 +89,27 @@
   margin-left: 10rem;
 }
 
-p, ul {
+p,
+ul {
   font-size: 16px;
 }
 
 .list-square {
-  list-style-type: 
+  list-style-type: ;
 }
-
 
 @media only screen and (max-width: 768px), (max-height: 800px) {
   #logo {
     font-size: 150%;
   }
-  p, li {
+  p,
+  li {
     font-size: 60%;
   }
 
   ul {
     padding-left: 0;
     padding-right: 0;
-    
   }
 
   .text-justify.px-20 {
@@ -114,15 +117,54 @@ p, ul {
     padding-right: 1rem;
   }
 
-  .px-20 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+  .project-grid {
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   img {
-    max-width: 90% !important;
+    max-width: 100% !important;
     height: auto !important;
-    margin-left: 3rem;
+  }
+
+  .project-image-1,
+  .project-image-2 {
+    width: 16rem !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+  }
+
+  .project-image-3,
+  .project-image-4 {
+    width: 10rem !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+  }
+
+  .project-image-5,
+  .project-image-6 {
+    width: 12rem !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+  }
+
+  .project-image-7,
+  .project-image-8 {
+    width: 20rem !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+  }
+
+  .px-20 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   .text-8xl {
@@ -141,41 +183,30 @@ p, ul {
     font-size: 60%;
   }
 
-  #contact1 img,
-  #contact3 img,
-  #email {
-    width: 6rem !important;
-    height: auto !important;
-  }
-
-
-  .container-card, .container-card-two, .container-card-three {
+  .container-card,
+  .container-card-two,
+  .container-card-three {
     margin-left: 1rem;
     margin-right: 1rem;
-    height: 80vh;
+    height: 40vh;
     overflow-y: auto;
-    width: 50vw;
+    width: 80vw;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 1rem;
   }
 
   .container-title {
-    font-size: 24px;
-    margin-bottom: 1rem;
-  }
-
-  .email-icon {
-    width: 40px;
-    height: 40px;
-    margin: 100px;
-  }
-  #contact2 {
-    margin-left: 10px;
-    margin-right: 10px;
+    font-size: 16px;
   }
 
   .arrow {
     padding: 0.5rem;
   }
-}
 
+  .contact-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}

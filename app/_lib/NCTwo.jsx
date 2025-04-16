@@ -15,7 +15,7 @@ const ibm = IBM_Plex_Sans({
 export default function ProjectTwo() {
 
   return (
-    <div className="grid grid-cols-2 w-full h-full p-4 gap-x-0">
+    <div className="project-grid grid grid-cols-2 w-full h-full p-4 gap-x-0">
       <RevealY>
         <div className="container-card-two border border-zinc-900 opacity-90">
           <div className="flex flex-row items-center mt-1 mb-1">
@@ -65,7 +65,7 @@ export default function ProjectTwo() {
             alt="NC News API"
             width={700}
             height={400}
-            className="object-contain opacity-90 rounded-lg"
+            className="object-contain opacity-90 rounded-lg project-image-7"
           />
         </div>
 
@@ -75,7 +75,7 @@ export default function ProjectTwo() {
             alt="NC News Frontend"
             width={700}
             height={400}
-            className="object-contain opacity-90 rounded-lg"
+            className="object-contain opacity-90 rounded-lg project-image-8"
           />
         </div>
       </RevealY>
