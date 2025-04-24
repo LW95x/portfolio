@@ -40,7 +40,7 @@ export default function ProjectOne() {
             <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
             </div>
           <h2 className={`${ibm.className} container-title`}>NC News</h2>
-          <p className="px-20 text-justify">
+          <p className="px-20">
           A full stack news aggregation platform built with <span className={`${ibm.className}`}>JavaScript</span>, <span className={`${ibm.className}`}>Node.js</span>, <span className={`${ibm.className}`}>Express</span>, <span className={`${ibm.className}`}>React</span>, <span className={`${ibm.className}`}>Vite</span>, <span className={`${ibm.className}`}>Axios</span> and a <span className={`${ibm.className}`}>PostgreSQL</span> database. Designed to mimic a similar service such as Reddit, where users can post content, leave comments on existing posts, and upvote or downvote other users posts.
           </p>
           <br />

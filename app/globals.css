@@ -63,6 +63,7 @@
   margin-left: 10rem;
   margin-right: 10rem;
   margin-top: 6rem;
+  overflow-y: auto;
 }
 
 .container-card-two {
@@ -74,7 +75,8 @@
   padding-top: 20px;
   height: 82vh;
   width: 40vw;
-  margin-left: 10rem;
+  margin-left: 5rem;
+  overflow-y: auto;
 }
 
 .container-card-three {
@@ -87,6 +89,7 @@
   height: 40vh;
   width: 40vw;
   margin-left: 10rem;
+  overflow-y: auto;
 }
 
 p,
@@ -94,17 +97,13 @@ ul {
   font-size: 16px;
 }
 
-.list-square {
-  list-style-type: ;
-}
-
-@media only screen and (max-width: 768px), (max-height: 800px) {
+@media only screen and (max-width: 1000px), (max-height: 800px) {
   #logo {
     font-size: 150%;
   }
   p,
   li {
-    font-size: 60%;
+    font-size: 90%;
   }
 
   ul {
@@ -168,11 +167,11 @@ ul {
   }
 
   .text-8xl {
-    font-size: 60%;
+    font-size: 80%;
   }
 
   .text-3xl {
-    font-size: 30%;
+    font-size: 40%;
   }
 
   .text-2xl {
@@ -208,5 +207,33 @@ ul {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .fixed.top-0 a {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1300px) {
+  .container-card,
+  .container-card-two,
+  .container-card-three {
+    overflow-y: auto;
+  }
+
+  p.px-20 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  ul {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }

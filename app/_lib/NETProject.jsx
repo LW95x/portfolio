@@ -38,7 +38,7 @@ export default function ProjectTwo() {
             </Link>
           </div>
           <h2 className={`${ibm.className} container-title`}>U2U Marketplace</h2>
-          <p className="px-20 text-justify">
+          <p className="px-20">
             A peer-to-peer marketplace API built using <span className={`${ibm.className}`}>C#</span>, <span className={`${ibm.className}`}>ASP.NET Core Web API</span>, <span className={`${ibm.className}`}>Entity Framework Core</span>, <span className={`${ibm.className}`}>LINQ</span>,
             and <span className={`${ibm.className}`}>Azure SQL Server</span> 
             . 

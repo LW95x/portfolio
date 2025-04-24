@@ -40,7 +40,7 @@ export default function ProjectTwo() {
             <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
             </div>
             <h2 className={`${ibm.className} container-title`}>ClubConnect</h2>
-          <p className="px-20 text-justify">
+          <p className="px-20">
           A full-stack <span className={`${ibm.className}`}>TypeScript</span> events management platform designed to mediate the buying and selling of tickets to sporting events. 
           Built using <span className={`${ibm.className}`}>Node.js</span>, <span className={`${ibm.className}`}>Express</span>, and a <span className={`${ibm.className}`}>PostgreSQL</span> database for the backend, combined with a responsive <span className={`${ibm.className}`}>React</span> frontend developed with <span className={`${ibm.className}`}>Next.js</span>, <span className={`${ibm.className}`}>Tailwind</span> and <span className={`${ibm.className}`}>Framer Motion</span>.
           </p>

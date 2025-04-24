@@ -40,7 +40,7 @@ export default function ProjectTwo() {
             <p className="text-center items-center justify-center hover:underline">Live version </p></Link>
             </div>
           <h2 className={`${ibm.className} container-title`}>Treasure Hunt</h2>
-          <p className="px-20 text-justify">
+          <p className="px-20">
           A full stack geocaching, location-based application built with <span className={`${ibm.className}`}>Python</span>, <span className={`${ibm.className}`}>Django REST</span>, <span className={`${ibm.className}`}>JavaScript</span>, <span className={`${ibm.className}`}>PostgreSQL</span>, <span className={`${ibm.className}`}>Next.js</span>, and <span className={`${ibm.className}`}>React</span>. The premise of the game is for users to find treasures in their area using GPS, akin to Pokemon Go or similar, to unlock treasures on a map by being within proximity of these treasures.
           </p>
           <br />
