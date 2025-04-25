@@ -26,6 +26,12 @@ export default function ImageLightbox({ src, alt, width, height, className = ''}
         close={() => setOpen(false)}
         slides={[{ src }]}
         controller={{ closeOnBackdropClick: true }}
+        styles={{
+          container: {
+            backgroundImage: 'url("/milad-fakurian-3hIaqX3VuXE-unsplash.jpg")',
+            backgroundSize: 'cover',
+          }
+        }}
         render={{
           buttonClose: () => (
             <button onClick={() => setOpen(false)} className="absolute top-4 right-4 text-white text-4xl m-5 hover:opacity-50 transition-opacity">
