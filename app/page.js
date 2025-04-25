@@ -17,6 +17,7 @@ import ProjectTwo from "./_lib/NCTwo";
 import NETProject from "./_lib/NETProject";
 import ReactGA from "react-ga4";
 import TSProject from "./_lib/TSProject";
+import 'yet-another-react-lightbox/styles.css';
 
 const rampartOne = Rampart_One({
   subsets: ["latin"],

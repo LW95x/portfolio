@@ -6,6 +6,7 @@ import { GiStack, GiTiedScroll } from "react-icons/gi";
 import Link from "next/link";
 import { CgWebsite } from "react-icons/cg";
 import { IBM_Plex_Sans } from "next/font/google";
+import ImageLightbox from "./ImageLightbox";
 
 const ibm = IBM_Plex_Sans({
   subsets: [ "latin" ],
@@ -70,7 +71,7 @@ export default function ProjectTwo() {
 
       <RevealY>
         <div className="flex justify-center items-center">
-          <Image
+          <ImageLightbox
             src="/erd.png"
             alt="Treasure Hunt API"
             width={600}
@@ -80,7 +81,7 @@ export default function ProjectTwo() {
         </div>
 
         <div className="flex justify-center items-center mt-3">
-          <Image
+          <ImageLightbox
             src="/solexplorer.png"
             alt="Treasure Hunt API"
             width={600}

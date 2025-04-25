@@ -6,6 +6,7 @@ import { GiTiedScroll, GiStack } from "react-icons/gi";
 import { CgWebsite } from "react-icons/cg";
 import Link from "next/link";
 import { IBM_Plex_Sans } from "next/font/google";
+import ImageLightbox from "./ImageLightbox";
 
 const ibm = IBM_Plex_Sans({
   subsets: [ "latin" ],
@@ -63,7 +64,7 @@ export default function ProjectOne() {
 
       <RevealY>
         <div className="flex justify-center items-center">
-          <Image
+          <ImageLightbox
             src="/nc-news-be.png"
             alt="NC News API"
             width={400}
@@ -73,7 +74,7 @@ export default function ProjectOne() {
         </div>
 
         <div className="flex justify-center items-center mt-3">
-          <Image
+          <ImageLightbox
             src="/nc-news-fe.png"
             alt="NC News Frontend"
             width={450}
