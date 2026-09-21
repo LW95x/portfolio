@@ -10,7 +10,7 @@ export default function ImageLightbox({ src, alt, width, height, className = ''}
     <>
       <div
         onClick={() => setOpen(true)}
-        className="cursor-pointer hover:opacity-80 transition-opacity"
+        className="cursor-zoom-in"
       >
         <Image
           src={src}

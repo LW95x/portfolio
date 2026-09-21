@@ -1,95 +1,41 @@
-import Image from "next/image";
-import RevealY from "./RevealY";
-import { useEffect, useRef, useState } from "react";
-import { FaDeaf, FaGithub, FaLaptopCode } from "react-icons/fa";
-import { GiStack, GiTiedScroll } from "react-icons/gi";
-import Link from "next/link";
-import { CgWebsite } from "react-icons/cg";
-import { IBM_Plex_Sans } from "next/font/google";
-import ImageLightbox from "./ImageLightbox";
+import ProjectShowcase from "./ProjectShowcase";
 
-const ibm = IBM_Plex_Sans({
-  subsets: [ "latin" ],
-  weight: "700",
-})
-
-
-
-export default function ProjectTwo() {
+export default function NETProject() {
   return (
-    <div className="project-grid grid grid-cols-2 w-full h-full p-4 gap-x-0">
-      <RevealY>
-        <div className="container-card-two border border-zinc-900 opacity-90">
-          <div className="flex flex-row items-center mt-1 mb-1">
-            <FaGithub size={20} className="mr-2" />
-            <Link
-              href="https://github.com/LW95x/marketplace_backend"
-              target="_blank"
-            >
-              <p className="hover:underline">View the code</p>
-            </Link>
-          </div>
-          <div className="flex flex-row items-center mt-1 mb-4">
-            <CgWebsite size={20} className="mr-2" />
-            <Link
-              href="https://u2umarketplace-api.azurewebsites.net/"
-              target="_blank"
-            >
-              <p className="hover:underline">Live version</p>
-            </Link>
-          </div>
-          <h2 className={`${ibm.className} container-title`}>U2U Marketplace</h2>
-          <p className="px-20">
-            A peer-to-peer marketplace API built using <span className={`${ibm.className}`}>C#</span>, <span className={`${ibm.className}`}>ASP.NET Core Web API</span>, <span className={`${ibm.className}`}>Entity Framework Core</span>, <span className={`${ibm.className}`}>LINQ</span>,
-            and <span className={`${ibm.className}`}>Azure SQL Server</span> 
-            . 
-            
-            The project aims
-            to replicate a service like eBay, where users can both buy and sell
-            products in a secure and efficient way.
-          </p>
-          <br />
-          <ul className="px-4 md:px-20 list-disc list-inside space-y-4" style={{ listStyleType: 'square' }}>
-            <li>
-              Adhered to <span className={`${ibm.className}`}>SOLID</span> principles, utilising the <span className={`${ibm.className}`}>Controller-Service-Repository</span> pattern, dependency injection and
-              interfaces to ensure separation of concerns is maintained
-              throughout the application
-            </li>
-            <li>
-              Achieved 100% test coverage with an extensive <span className={`${ibm.className}`}>xUnit</span> testing suite
-              comprising over 130 tests
-            </li>
-            <li>
-              Containerised the application using <span className={`${ibm.className}`}>Docker</span>, and deployed to an <span className={`${ibm.className}`}>Azure App Service</span>
-            </li>
-            <li>
-              Automated <span className={`${ibm.className}`}>CI/CD</span> pipeline using <span className={`${ibm.className}`}>GitHub Actions</span> for testing, building, and deployment phases
-            </li>
-          </ul>
-        </div>
-      </RevealY>
-
-      <RevealY>
-        <div className="flex justify-center items-center">
-          <ImageLightbox
-            src="/erd.png"
-            alt="Treasure Hunt API"
-            width={600}
-            height={400}
-            className="object-contain opacity-80 rounded-lg project-image-1"
-          />
-        </div>
-
-        <div className="flex justify-center items-center mt-3">
-          <ImageLightbox
-            src="/solexplorer.png"
-            alt="Treasure Hunt API"
-            width={600}
-            height={400}
-            className="object-contain opacity-90 rounded-lg project-image-2"
-          />
-        </div>
-      </RevealY>
-    </div>
+    <ProjectShowcase
+      category="C# & .NET Project"
+      title="U2U Marketplace"
+      links={[
+        { label: "View the code", href: "https://github.com/LW95x/marketplace_backend", type: "code" },
+        { label: "Live version", href: "https://u2umarketplace-api.azurewebsites.net/", type: "live" },
+      ]}
+      description={
+        <>
+          A peer-to-peer marketplace API built using C#, ASP.NET Core Web API, Entity Framework Core, LINQ,
+          and Azure SQL Server. The project aims to replicate a service like eBay, where users can both buy and sell
+          products in a secure and efficient way.
+        </>
+      }
+      highlights={[
+        <>
+          Adhered to SOLID principles, utilising the Controller-Service-Repository pattern, dependency injection and
+          interfaces to ensure separation of concerns is maintained throughout the application
+        </>,
+        <>
+          Achieved 100% test coverage with an extensive xUnit testing suite comprising over 130 tests
+        </>,
+        <>
+          Containerised the application using Docker, and deployed to an Azure App Service
+        </>,
+        <>
+          Automated CI/CD pipeline using GitHub Actions for testing, building, and deployment phases
+        </>,
+      ]}
+      stack={["C#", "ASP.NET Core", "Entity Framework Core", "LINQ", "Azure SQL", "xUnit", "Docker", "Azure App Service", "GitHub Actions"]}
+      images={[
+        { src: "/erd.png", caption: "Entity relationship diagram", alt: "U2U Marketplace entity relationship diagram", width: 1006, height: 530 },
+        { src: "/solexplorer.png", caption: "Solution structure", alt: "U2U Marketplace solution structure", width: 786, height: 554 },
+      ]}
+    />
   );
 }

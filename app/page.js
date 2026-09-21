@@ -1,22 +1,25 @@
 "use client";
-import { RiMenuFill } from "react-icons/ri";
-import { BsFillArrowDownSquareFill } from "react-icons/bs";
-import { Rampart_One, Kanit, Michroma, IBM_Plex_Sans } from "next/font/google";
-import Image from "next/image";
-import { motion, useScroll } from "framer-motion";
+import { RiMenuFill, RiCloseLine } from "react-icons/ri";
+import { FaChevronDown, FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa6";
+import {
+  SiDotnet,
+  SiTypescript,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+} from "react-icons/si";
+import { TbBrandCSharp, TbBrandAzure } from "react-icons/tb";
+import { Rampart_One } from "next/font/google";
 import { useState, useEffect } from "react";
 import RevealY from "./_lib/RevealY";
-import RevealXRight from "./_lib/RevealXRight";
-import RevealXLeft from "./_lib/RevealXLeft";
 import Link from "next/link";
-import RevealMenu from "./_lib/RevealMenu";
-import { TfiEmail } from "react-icons/tfi";
-import { SlArrowDown } from "react-icons/sl";
 import ProjectOne from "./_lib/NCOne";
 import ProjectTwo from "./_lib/NCTwo";
 import NETProject from "./_lib/NETProject";
 import ReactGA from "react-ga4";
 import TSProject from "./_lib/TSProject";
+import SubceptProject from "./_lib/SubceptProject";
 import 'yet-another-react-lightbox/styles.css';
 
 const rampartOne = Rampart_One({
@@ -24,35 +27,85 @@ const rampartOne = Rampart_One({
   weight: "400",
 });
 
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: "300",
-});
+const navItems = [
+  { label: "Home", id: "home", sections: ["home"] },
+  { label: "Subcept", id: "subcept", sections: ["subcept"] },
+  { label: "C# & .NET", id: "page2", sections: ["page2"] },
+  { label: "TypeScript", id: "page3", sections: ["page3"] },
+  { label: "JavaScript", id: "page4", sections: ["page4", "page5"] },
+  { label: "Contact", id: "page6", sections: ["page6"] },
+];
 
-const michroma = Michroma({
-  subsets: ["latin"],
-  weight: "400",
-});
+const sectionIds = navItems.flatMap((item) => item.sections);
 
-const ibm = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: "700",
-});
-
-const returnToTop = (e) => {
-  e.preventDefault();
+const scrollToSection = (id) => {
   const scrollContainer = document.getElementById("scrollContainer");
-  if (scrollContainer) {
-    scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+  const section = document.getElementById(id);
+  if (scrollContainer && section) {
+    scrollContainer.scrollTo({ top: section.offsetTop, behavior: "smooth" });
   }
 };
 
-export default function Home() {
-  const [menu, setMenu] = useState(true);
+const techStack = [
+  { name: "C#", Icon: TbBrandCSharp, color: "#a179dc" },
+  { name: ".NET", Icon: SiDotnet, color: "#8b6cef" },
+  { name: "TypeScript", Icon: SiTypescript, color: "#3178c6" },
+  { name: "JavaScript", Icon: SiJavascript, color: "#f7df1e" },
+  { name: "Azure", Icon: TbBrandAzure, color: "#3a96dd" },
+  { name: "Next.js", Icon: SiNextdotjs, color: "#ffffff" },
+  { name: "Node.js", Icon: SiNodedotjs, color: "#5fa04e" },
+  { name: "React", Icon: SiReact, color: "#61dafb" },
+];
 
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
+const contactLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/liam-woodall/",
+    Icon: FaLinkedinIn,
+    external: true,
+  },
+  {
+    name: "Email",
+    href: "mailto:liam.woodall@live.co.uk",
+    Icon: FaEnvelope,
+    external: false,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/LW95x/",
+    Icon: FaGithub,
+    external: true,
+  },
+];
+
+function NextSection({ href, bounce = false }) {
+  return (
+    <Link
+      href={href}
+      aria-label="Next section"
+      className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-zinc-950/60 text-zinc-300 backdrop-blur transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white ${
+        bounce ? "icon-bounce" : ""
+      }`}
+    >
+      <FaChevronDown size={16} />
+    </Link>
+  );
+}
+
+function ProjectSection({ id, next, children }) {
+  return (
+    <section id={id} className="snap-start h-screen flex flex-col pt-16">
+      <div className="flex-1 min-h-0 flex items-center py-4">{children}</div>
+      <div className="flex justify-center pb-5">
+        <NextSection href={next} />
+      </div>
+    </section>
+  );
+}
+
+export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     if (window.location.hash) {
@@ -64,6 +117,29 @@ export default function Home() {
     ReactGA.initialize("G-7J731CXS60");
   }, []);
 
+  // Highlight the nav item for whichever section is on screen
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { root: document.getElementById("scrollContainer"), threshold: 0.6 }
+    );
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    scrollToSection(id);
+  };
+
   return (
     <>
       <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -71,272 +147,156 @@ export default function Home() {
         id="scrollContainer"
         className="overflow-y-scroll h-screen snap-y snap-mandatory scroll-smooth hide-scrollbar"
       >
-        <div className="w-full fixed top-0 text-center grid grid-cols-custom grid-rows-1 h-16 bg-zinc-900">
-          <button onClick={returnToTop}>
-            <div id="logo-parent" className="flex items-center ml-5">
-              <h1
-                id="logo"
-                className={`${rampartOne.className} text-4xl text-center hover:bg-zinc-800`}
-              >
-                LW
-              </h1>
-            </div>
-          </button>
-          <div className="grid grid-cols-5 grid-rows-1 gap-0">
-            {menu ? (
-              <>
-                <Link
-                  href="#home"
-                  onClick={returnToTop}
-                  className="flex text-center justify-center items-center hover:bg-zinc-800 rounded transition-all duration-300 "
-                >
-                  <RevealMenu>Home</RevealMenu>
-                </Link>
-                <Link
-                  href="#page2"
-                  className="flex text-center justify-center items-center hover:bg-zinc-800 rounded transition-all duration-300"
-                >
-                  <RevealMenu>C# & .NET Project</RevealMenu>
-                </Link>
-                <Link
-                  href="#page3"
-                  className="flex text-center justify-center items-center hover:bg-zinc-800 rounded transition-all duration-300"
-                >
-                  <RevealMenu>TypeScript Project</RevealMenu>
-                </Link>
-                <Link
-                  href="#page4"
-                  className="flex text-center justify-center items-center hover:bg-zinc-800 rounded transition-all duration-300"
-                >
-                  <RevealMenu>JavaScript Projects</RevealMenu>
-                </Link>
-                <Link
-                  href="#page6"
-                  className="flex text-center justify-center items-center hover:bg-zinc-800 rounded transition-all duration-300"
-                >
-                  <RevealMenu>Contact</RevealMenu>
-                </Link>
-              </>
-            ) : null}
-          </div>
-          <div className="flex items-center justify-end p-3 mr-5 ">
-            <button onClick={toggleMenu}>
-              <RiMenuFill
-                size={30}
-                className="hover:bg-zinc-800 rounded transition-all duration-300"
-              />
+        <header className="fixed inset-x-0 top-0 z-50 bg-zinc-950/70 backdrop-blur-xl">
+          <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-8 lg:grid lg:grid-cols-[1fr_auto_1fr]">
+            <button
+              onClick={(e) => handleNavClick(e, "home")}
+              aria-label="Back to top"
+              className={`${rampartOne.className} justify-self-start text-3xl text-white transition-opacity hover:opacity-80`}
+            >
+              LW
             </button>
-          </div>
-        </div>
-        <div className="snap-start h-screen grid grid-cols-1 grid-rows-2 gap-1">
-          <div
-            className={`${kanit.className}  flex items-end text-center text-5xl justify-center`}
-          >
-            <RevealY>
-              <p className={`${michroma.className} text-8xl opacity-90`}>
-                LIAM WOODALL
-              </p>
-              <p className={`${michroma.className} text-3xl mt-10 opacity-90`}>
-                FULL STACK DEVELOPER
-              </p>
-            </RevealY>
-          </div>
-          <div className="flex items-center justify-center">
-            <RevealY>
-              <div className="flex flex-row gap-4">
-                <Image
-                  src="/Logo_C_sharp.png"
-                  alt="C# Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-                <Image
-                  src="/NET_Core_Logo.png"
-                  alt=".NET Core Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-                <Image
-                  src="/Typescript_logo_2020.png"
-                  alt="TypeScript Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-                <Image
-                  src="/JavaScript-logo.png"
-                  alt="JavaScript Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-              </div>
-              <div className="flex flex-row gap-4 mt-5">
-                <Image
-                  src="/Microsoft_Azure.png"
-                  alt=".NET Core Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-                <Image
-                  src="nextjs.png"
-                  alt="Next.js Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-                <Image
-                  src="node1.png"
-                  alt="Node.js Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-                <Image
-                  src="/react_icon.png"
-                  alt="React Logo"
-                  width={50}
-                  height={50}
-                  className="opacity-100 transition-transform duration-200 hover:scale-110"
-                />
-              </div>
-            </RevealY>
-          </div>
-          <div className="grid grid-cols-1">
-            <div></div>
-            <div></div>
-            <div className="flex justify-center items-center">
-              <Link href="#page2" className="flex items-center justify-center">
-                <BsFillArrowDownSquareFill
-                  size={50}
-                  className="p-1 flex items-center justify-center icon-bounce mb-1"
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div
-          id="page2"
-          className="snap-start h-screen w-full pt-20 grid grid-cols-2 grid-rows-[auto_auto] gap-0"
-        >
-          <div className="row-span-1 col-span-2">
-            <NETProject />
-          </div>
-          <div className="col-span-2 flex justify-center">
-            <Link href="#page3" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill size={40} className="p-1 arrow mb-1" />
-            </Link>
-          </div>
-        </div>
-        <div
-          id="page3"
-          className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
-        >
-          <div>
-            <TSProject />
-          </div>
-          <div className="col-span-2 flex justify-center">
-            <Link href="#page4" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill size={40} className="p-1 arrow mb-3" />
-            </Link>
-          </div>
-        </div>
-        <div
-          id="page4"
-          className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
-        >
-          <div>
-            <ProjectOne />
-          </div>
-          <div className="flex justify-center mt-0.5">
-            <Link href="#page5" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill size={40} className="p-1 arrow" />
-            </Link>
-          </div>
-        </div>
-        <div
-          id="page5"
-          className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-[0.5fr_repeat(2,_1fr)] gap-0"
-        >
-          <div>
-            <ProjectTwo />
-          </div>
-          <div className="flex justify-center mt-0.5">
-            <Link href="#page6" className="flex items-center justify-start">
-              <BsFillArrowDownSquareFill size={40} className="p-1 arrow" />
-            </Link>
-          </div>
-        </div>
-        <div
-          id="page6"
-          className="snap-start h-screen pt-20 grid grid-cols-1 grid-rows-3 gap-1 "
-        >
-          <div className="flex items-end text-center text-3xl justify-center">
-            <RevealY>
-              <p className={`${michroma.className} text-2xl`}>
-                Thank you for taking the time to check out my portfolio. <br />
-                <br />
-                If you&apos;d like to keep in touch:
-              </p>
-            </RevealY>
-          </div>
-          <div className="contact-grid grid grid-cols-9">
-            <div></div>
-            <div></div>
-            <div></div>
 
-            <div id="contact1" className="flex items-center justify-center">
-              <RevealXLeft>
-                <Link
-                  href="https://www.linkedin.com/in/liam-woodall/"
-                  target="_blank"
-                >
-                  <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
-                    <Image
-                      src="/LinkedIn-Logo-2019.png"
-                      width={200}
-                      height={200}
-                      alt="linkedin"
-                      className="object-contain transition-transform duration-200 hover:scale-110 linkedin-image"
-                    />
-                  </div>
-                </Link>
-              </RevealXLeft>
-            </div>
-            <div id="contact2" className="flex items-center justify-center">
-              <RevealY>
-                <Link href="mailto:liam.woodall@live.co.uk">
-                  <div className="relative group p-4 rounded-lg transition-all duration-200 hover:bg-gray-800">
-                    <TfiEmail
-                      id="email"
-                      size={150}
-                      alt="email"
-                      className="email-icon transition-transform duration-200 hover:scale-110"
-                    />
-                  </div>
-                </Link>
-              </RevealY>
-            </div>
-            <div id="contact3" className="flex items-center justify-center">
-              <RevealXRight>
-                <Link href="https://github.com/LW95x/" target="_blank">
-                  <div className="relative group p-2 rounded-lg transition-all duration-200 hover:bg-gray-800">
-                    <Image
-                      src="/GitHub_Logo.png"
-                      width={200}
-                      height={200}
-                      className="object-contain transition-transform duration-200 hover:scale-110 github-image"
-                      alt="github"
-                    />
-                  </div>
-                </Link>
-              </RevealXRight>
+            <nav className="hidden lg:flex items-center gap-1 rounded-full bg-white/[0.03] p-1">
+              {navItems.map(({ label, id, sections }) => {
+                const active = sections.includes(activeSection);
+                return (
+                  <a
+                    key={id}
+                    href={`#${id}`}
+                    onClick={(e) => handleNavClick(e, id)}
+                    aria-current={active ? "true" : undefined}
+                    className={`rounded-full px-4 py-1.5 text-sm transition-colors ${
+                      active
+                        ? "bg-white/10 text-white"
+                        : "text-zinc-400 hover:text-white"
+                    }`}
+                  >
+                    {label}
+                  </a>
+                );
+              })}
+            </nav>
+
+            <div className="flex items-center justify-self-end gap-1">
+              <Link
+                href="https://www.linkedin.com/in/liam-woodall/"
+                target="_blank"
+                aria-label="LinkedIn"
+                className="hidden lg:flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <FaLinkedinIn size={17} />
+              </Link>
+              <Link
+                href="mailto:liam.woodall@live.co.uk"
+                aria-label="Email"
+                className="hidden lg:flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <FaEnvelope size={16} />
+              </Link>
+              <Link
+                href="https://github.com/LW95x/"
+                target="_blank"
+                aria-label="GitHub"
+                className="hidden lg:flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <FaGithub size={18} />
+              </Link>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full text-zinc-200 transition-colors hover:bg-white/10"
+              >
+                {mobileMenuOpen ? <RiCloseLine size={24} /> : <RiMenuFill size={22} />}
+              </button>
             </div>
           </div>
-        </div>
+
+          {mobileMenuOpen && (
+            <nav className="lg:hidden px-4 pb-3 flex flex-col gap-1">
+              {navItems.map(({ label, id, sections }) => {
+                const active = sections.includes(activeSection);
+                return (
+                  <a
+                    key={id}
+                    href={`#${id}`}
+                    onClick={(e) => handleNavClick(e, id)}
+                    className={`rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                      active
+                        ? "bg-white/10 text-white"
+                        : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                    }`}
+                  >
+                    {label}
+                  </a>
+                );
+              })}
+            </nav>
+          )}
+        </header>
+        <section id="home" className="snap-start h-screen flex flex-col pt-16">
+          <div className="flex-1 flex items-center justify-center px-4">
+            <RevealY>
+              <div className="grid grid-cols-4 gap-3 sm:gap-5">
+                {techStack.map(({ name, Icon, color }) => (
+                  <div
+                    key={name}
+                    className="glass-panel group flex h-20 w-20 flex-col items-center justify-center gap-2 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 sm:h-28 sm:w-28 sm:gap-3 lg:h-32 lg:w-32"
+                  >
+                    <Icon
+                      className="text-3xl sm:text-5xl lg:text-[3.25rem]"
+                      style={{ color }}
+                    />
+                    <span className="text-[10px] tracking-wide text-zinc-400 transition-colors group-hover:text-zinc-100 sm:text-xs">
+                      {name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </RevealY>
+          </div>
+          <div className="flex justify-center pb-5">
+            <NextSection href="#subcept" bounce />
+          </div>
+        </section>
+        <ProjectSection id="subcept" next="#page2">
+          <SubceptProject />
+        </ProjectSection>
+        <ProjectSection id="page2" next="#page3">
+          <NETProject />
+        </ProjectSection>
+        <ProjectSection id="page3" next="#page4">
+          <TSProject />
+        </ProjectSection>
+        <ProjectSection id="page4" next="#page5">
+          <ProjectOne />
+        </ProjectSection>
+        <ProjectSection id="page5" next="#page6">
+          <ProjectTwo />
+        </ProjectSection>
+        <section
+          id="page6"
+          className="snap-start h-screen pt-16 flex items-center justify-center px-4"
+        >
+          <RevealY>
+            <div className="flex flex-row items-center justify-center gap-3 sm:gap-8">
+              {contactLinks.map(({ name, href, Icon, external }) => (
+                <Link
+                  key={name}
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  className="glass-panel group flex h-24 w-24 flex-col items-center justify-center gap-2 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 sm:h-44 sm:w-44 sm:gap-4 lg:h-52 lg:w-52"
+                >
+                  <Icon className="text-4xl text-zinc-100 transition-colors group-hover:text-white sm:text-6xl lg:text-7xl" />
+                  <span className="text-xs tracking-wide text-zinc-400 transition-colors group-hover:text-zinc-100 sm:text-sm">
+                    {name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </RevealY>
+        </section>
       </div>
     </>
   );

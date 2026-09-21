@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        // landscape phones: wide enough for two columns but very little height
+        short: { raw: "(min-width: 640px) and (max-height: 500px)" },
+        // enough room for tech tags to wrap onto multiple lines
+        roomy: { raw: "(min-width: 640px) and (min-height: 501px)" },
+      },
       keyframes: {
         bounce: {
           '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
