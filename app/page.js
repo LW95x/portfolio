@@ -10,7 +10,6 @@ import {
   SiReact,
 } from "react-icons/si";
 import { TbBrandCSharp, TbBrandAzure } from "react-icons/tb";
-import { Rampart_One } from "next/font/google";
 import { useState, useEffect } from "react";
 import RevealY from "./_lib/RevealY";
 import Link from "next/link";
@@ -21,11 +20,6 @@ import ReactGA from "react-ga4";
 import TSProject from "./_lib/TSProject";
 import SubceptProject from "./_lib/SubceptProject";
 import 'yet-another-react-lightbox/styles.css';
-
-const rampartOne = Rampart_One({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const navItems = [
   { label: "Home", id: "home", sections: ["home"] },
@@ -152,7 +146,7 @@ export default function Home() {
             <button
               onClick={(e) => handleNavClick(e, "home")}
               aria-label="Back to top"
-              className={`${rampartOne.className} justify-self-start text-3xl text-white transition-opacity hover:opacity-80`}
+              className="justify-self-start flex h-9 w-9 items-center justify-center rounded-[9px] bg-zinc-50 text-sm font-extrabold leading-none tracking-[-0.04em] text-zinc-950 transition-colors hover:bg-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
               LW
             </button>

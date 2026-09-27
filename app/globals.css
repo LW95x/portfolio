@@ -53,6 +53,17 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Zoomed screenshot: rounded corners, a hairline edge and a soft drop shadow */
+.portfolio-lightbox .yarl__slide {
+  overflow: visible;
+}
+
+.portfolio-lightbox .yarl__slide_image {
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 24px 60px -12px rgba(0, 0, 0, 0.75), 0 8px 20px -8px rgba(0, 0, 0, 0.5);
+}
+
 .thin-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;

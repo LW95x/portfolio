@@ -25,6 +25,8 @@ export default function ImageLightbox({ src, alt, width, height, className = ''}
         open={open}
         close={() => setOpen(false)}
         slides={[{ src }]}
+        className="portfolio-lightbox"
+        carousel={{ padding: '32px' }}
         controller={{ closeOnBackdropClick: true }}
         styles={{
           container: {
@@ -34,7 +36,7 @@ export default function ImageLightbox({ src, alt, width, height, className = ''}
         }}
         render={{
           buttonClose: () => (
-            <button onClick={() => setOpen(false)} className="absolute top-4 right-4 text-white text-4xl m-5 hover:opacity-50 transition-opacity">
+            <button key="close" onClick={() => setOpen(false)} className="absolute top-4 right-4 text-white text-4xl m-5 hover:opacity-50 transition-opacity">
               ✕
             </button>
           ),
